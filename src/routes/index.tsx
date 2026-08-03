@@ -1,24 +1,117 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { Hero } from "@/components/site/Hero";
+import { TrustBar } from "@/components/site/TrustBar";
+import { About } from "@/components/site/About";
+import { Services } from "@/components/site/Services";
+import { Credentials } from "@/components/site/Credentials";
+import { WhyAutoDome } from "@/components/site/WhyAutoDome";
+import { Industries } from "@/components/site/Industries";
+import { Brands } from "@/components/site/Brands";
+import { Stats } from "@/components/site/Stats";
+import { Gallery } from "@/components/site/Gallery";
+import { Training } from "@/components/site/Training";
+import { Testimonials } from "@/components/site/Testimonials";
+import { Faq } from "@/components/site/Faq";
+import { FinalCta } from "@/components/site/FinalCta";
+import { Contact } from "@/components/site/Contact";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { FloatingActions } from "@/components/site/FloatingActions";
+import { SITE } from "@/lib/site";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const TITLE = "AutoDome | Commercial Vehicle Diagnostics & ECU Solutions UAE";
+const DESCRIPTION =
+  "AutoDome delivers advanced commercial vehicle diagnostics, ECU repair and programming, genuine parts, technical training, and workshop equipment across the UAE.";
+
+const STRUCTURED_DATA = {
+  "@context": "https://schema.org",
+  "@type": "AutomotiveBusiness",
+  name: "AutoDome",
+  description: DESCRIPTION,
+  email: SITE.email,
+  telephone: SITE.phones[0],
+  parentOrganization: { "@type": "Organization", name: SITE.parent },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "407A, Al Sajaa Industrial",
+    addressLocality: "Sharjah",
+    addressCountry: "AE",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "19:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Saturday"],
+      opens: "08:00",
+      closes: "18:00",
+    },
+  ],
+  areaServed: "United Arab Emirates",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Commercial vehicle solutions",
+    itemListElement: [
+      "Diagnosis, Troubleshooting & Repair",
+      "Dealer-Level Diagnostic Tools & Support",
+      "ECU Remapping Tools & File Tuning",
+      "ECU Repair & Reprogramming",
+      "Advanced Training Programs",
+      "Heavy Duty Vehicle Parts Supply",
+      "Workshop Tools & Equipment Trading",
+    ].map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
+  },
+};
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(STRUCTURED_DATA),
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background">
+      <SiteHeader />
+      <main>
+        <Hero />
+        <TrustBar />
+        <About />
+        <Services />
+        <Credentials />
+        <WhyAutoDome />
+        <Industries />
+        <Brands />
+        <Stats />
+        <Gallery />
+        <Training />
+        <Testimonials />
+        <Faq />
+        <FinalCta />
+        <Contact />
+      </main>
+      <SiteFooter />
+      <FloatingActions />
     </div>
   );
 }
