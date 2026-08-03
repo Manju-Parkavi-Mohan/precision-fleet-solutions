@@ -18,10 +18,10 @@ export function Reveal({
   className,
 }: {
   children: ReactNode;
-  as?: ElementType;
-  direction?: Direction;
-  delay?: number;
-  className?: string;
+  as?: ElementType | undefined;
+  direction?: Direction | undefined;
+  delay?: number | undefined;
+  className?: string | undefined;
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
