@@ -83,7 +83,7 @@ export function About() {
               ))}
             </dl>
 
-            <Button asChild variant="outlineBrand" size="lg" className="mt-10 w-full sm:w-auto">
+            <Button asChild variant="hero" size="lg" className="mt-10 w-full sm:w-auto">
               <a href="#solutions">
                 Explore our solutions
                 <ArrowRight className="size-4" aria-hidden="true" />

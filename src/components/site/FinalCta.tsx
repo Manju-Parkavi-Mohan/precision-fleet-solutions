@@ -37,7 +37,7 @@ export function FinalCta() {
                 Talk to an Expert
               </a>
             </Button>
-            <Button asChild variant="onImage" size="xl" className="w-full sm:w-auto">
+            <Button asChild variant="hero" size="xl" className="w-full sm:w-auto">
               <a href="#contact">
                 Request Consultation
                 <ArrowRight className="size-4" aria-hidden="true" />

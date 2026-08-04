@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS, SITE } from "@/lib/site";
+import logo from "@/assets/autodome-logo.png.asset.json";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -98,7 +99,7 @@ export function SiteHeader() {
             <Phone className="size-4" aria-hidden="true" />
             {SITE.phones[0]}
           </a>
-          <Button asChild variant={scrolled ? "hero" : "onImage"}>
+          <Button asChild variant="hero">
             <a href="#contact">Request Consultation</a>
           </Button>
         </div>

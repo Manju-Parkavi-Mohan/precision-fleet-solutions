@@ -110,7 +110,7 @@ export function Services() {
                   <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
                     {service.body}
                   </p>
-                  <Button asChild variant="outlineBrand" className="mt-8 w-full sm:w-auto">
+                  <Button asChild variant="hero" className="mt-8 w-full sm:w-auto">
                     <a href="#contact">
                       Learn More
                       <ArrowRight className="size-4" aria-hidden="true" />
