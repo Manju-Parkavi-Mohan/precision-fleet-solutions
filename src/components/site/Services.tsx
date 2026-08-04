@@ -12,43 +12,43 @@ import fleetImg from "@/assets/cta-fleet.jpg";
 const SERVICES = [
   {
     title: "Diagnosis, Troubleshooting & Repair",
-    body: "Advanced diagnosis and repair solutions for heavy-duty commercial vehicles, helping fleets reduce downtime and maintain reliable operations.",
+    body: "We provide diagnosis, troubleshooting, and repair for heavy-duty commercial vehicles to keep your fleet running smoothly. Our skilled technicians use advanced tools to find and fix problems quickly and efficiently. From engines and transmissions to electrical and hydraulic systems, we take care of every part of your vehicle. With a focus on reliability, safety, and minimal downtime, we help businesses get the best performance and longer life from their commercial vehicles.",
     image: aboutImg,
     alt: "Technician diagnosing a heavy-duty commercial vehicle engine",
   },
   {
     title: "Dealer-Level Diagnostic Tools & Support",
-    body: "Professional diagnostic equipment and technical support that enables workshops and technicians to identify complex vehicle issues accurately.",
+    body: "We offer dealer-level diagnostic tools along with full technical support, helping automotive professionals accurately diagnose and repair vehicles. Our range of advanced tools is designed for precision, efficiency, and reliability, ensuring technicians can quickly identify and resolve issues. With expert guidance and ongoing support, we empower workshops and service centers to maintain high standards of vehicle performance and customer satisfaction.",
     image: diagnosticsImg,
     alt: "Dealer-level diagnostic equipment connected to a commercial truck",
   },
   {
     title: "ECU Remapping Tools & File Tuning",
-    body: "Performance optimization solutions including ECU tuning tools and file services designed to improve vehicle efficiency and performance.",
+    body: "We provide ECU remapping tools and file tuning services to enhance the performance, efficiency, and drivability of vehicles. Our advanced tools allow precise adjustments to engine control parameters, while our expert team offers professional file tuning tailored to each vehicle's needs. Whether it's for improved power, fuel efficiency, or smoother performance, our solutions ensure optimal results while maintaining reliability and safety.",
     image: fleetImg,
     alt: "Commercial truck fleet optimised for efficiency and performance",
   },
   {
     title: "ECU Repair & Reprogramming",
-    body: "Expert ECU repair and programming services for engines, gearboxes, and vehicle electronic systems.",
+    body: "Our highly skilled technicians specialize in ECU repairs and reprogramming for all types of engines and gearboxes. We ensure accurate diagnostics, reliable solutions, and professional service to get your vehicles back on the road with optimal performance.",
     image: ecuImg,
     alt: "Engineer repairing a vehicle electronic control unit circuit board",
   },
   {
     title: "Advanced Training Programs",
-    body: "Professional training programs designed for technicians and engineers to enhance diagnostic and repair capabilities.",
+    body: "We deliver advanced training programs for engineers and technicians, designed to enhance skills and keep professionals up-to-date with the latest automotive technologies. Our hands-on courses cover diagnostics, repair techniques, ECU tuning, and the use of modern tools, providing practical knowledge that can be applied directly in the workshop. With expert instructors and real-world training scenarios, we empower technicians to improve efficiency, accuracy, and overall performance in their work.",
     image: trainingImg,
     alt: "Automotive technicians attending an AutoDome technical training session",
   },
   {
     title: "Heavy Duty Vehicle Parts Supply",
-    body: "Genuine electronic components, control units, and mechanical parts supporting commercial vehicle maintenance.",
+    body: "We maintain a large inventory of electronic control units, electronic components, and mechanical parts for all major commercial vehicle brands. In addition, our experienced team can source special or hard-to-find parts for any brand of commercial vehicles and construction equipment, ensuring timely delivery and reliable support.",
     image: partsImg,
     alt: "Warehouse shelving stocked with genuine heavy-duty vehicle parts",
   },
   {
     title: "Workshop Tools & Equipment Trading",
-    body: "Complete workshop technology solutions with professional tools and equipment for automotive businesses.",
+    body: "We specialize in trading workshop tools and equipment, offering a wide range of high-quality products for automotive and industrial workshops. From hand tools and power tools to diagnostic equipment and specialized machinery, we provide reliable solutions to meet every workshop's needs. Our focus is on quality, durability, and affordability, ensuring that professionals have the right tools to work efficiently and maintain high standards of service.",
     image: equipmentImg,
     alt: "Professional workshop tools and equipment supplied by AutoDome",
   },
@@ -110,7 +110,7 @@ export function Services() {
                   <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
                     {service.body}
                   </p>
-                  <Button asChild variant="outlineBrand" className="mt-8 w-full sm:w-auto">
+                  <Button asChild variant="hero" className="mt-8 w-full sm:w-auto">
                     <a href="#contact">
                       Learn More
                       <ArrowRight className="size-4" aria-hidden="true" />

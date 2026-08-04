@@ -1,7 +1,10 @@
 export const SITE = {
   name: "AutoDome",
   tagline: "Powering Smarter Mobility Through Advanced Vehicle Technology",
-  parent: "ADL Automotive",
+  storefront: {
+    name: "ADL Automotive",
+    url: "https://adlautomotive.com",
+  },
   email: "Office@autodome.ae",
   phones: ["+971 6 565 8212", "+971 52 191 4444"],
   whatsapp: "971521914444",
@@ -19,6 +22,6 @@ export const NAV_LINKS = [
   { label: "Solutions", href: "#solutions" },
   { label: "Industries", href: "#industries" },
   { label: "Training", href: "#training" },
-  { label: "Credentials", href: "#credentials" },
+  { label: "Online Store", href: "#store" },
   { label: "Contact", href: "#contact" },
 ] as const;

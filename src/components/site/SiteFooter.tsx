@@ -1,5 +1,6 @@
 import { Mail, MapPin, Phone, Linkedin, Instagram, Facebook } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/lib/site";
+import logo from "@/assets/autodome-logo.png.asset.json";
 
 const SERVICES = [
   "Diagnosis, Troubleshooting & Repair",
@@ -18,8 +19,14 @@ export function SiteFooter() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
             <div className="flex items-center gap-3">
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary-foreground font-display text-lg font-bold text-primary-deep">
-                A
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary-foreground/10 p-1.5">
+                <img
+                  src={logo.url}
+                  alt="AutoDome logo"
+                  width={44}
+                  height={44}
+                  className="h-full w-full object-contain"
+                />
               </span>
               <span className="font-display text-xl font-bold tracking-tight">AUTODOME</span>
             </div>
@@ -123,8 +130,17 @@ export function SiteFooter() {
         <div className="mt-16 flex flex-col gap-4 border-t border-primary-foreground/15 pt-8 text-xs text-primary-foreground/60 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} AutoDome. All rights reserved.</p>
           <p className="font-semibold tracking-wide text-primary-foreground/80">
-            Powered by {SITE.parent}
+            Online store:{" "}
+            <a
+              href={SITE.storefront.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:underline"
+            >
+              {SITE.storefront.name}
+            </a>
           </p>
+
         </div>
       </div>
     </footer>

@@ -7,6 +7,7 @@ import { Services } from "@/components/site/Services";
 import { Credentials } from "@/components/site/Credentials";
 import { WhyAutoDome } from "@/components/site/WhyAutoDome";
 import { Industries } from "@/components/site/Industries";
+import { AdlStore } from "@/components/site/AdlStore";
 import { Brands } from "@/components/site/Brands";
 import { Stats } from "@/components/site/Stats";
 import { Gallery } from "@/components/site/Gallery";
@@ -30,7 +31,7 @@ const STRUCTURED_DATA = {
   description: DESCRIPTION,
   email: SITE.email,
   telephone: SITE.phones[0],
-  parentOrganization: { "@type": "Organization", name: SITE.parent },
+  subOrganization: { "@type": "Organization", name: SITE.storefront.name, url: SITE.storefront.url },
   address: {
     "@type": "PostalAddress",
     streetAddress: "407A, Al Sajaa Industrial",
@@ -102,6 +103,7 @@ function Index() {
         <WhyAutoDome />
         <Industries />
         <Brands />
+        <AdlStore />
         <Stats />
         <Gallery />
         <Training />

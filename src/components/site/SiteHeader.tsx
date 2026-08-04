@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS, SITE } from "@/lib/site";
+import logo from "@/assets/autodome-logo.png.asset.json";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -35,11 +36,17 @@ export function SiteHeader() {
         <a href="#top" className="group flex items-center gap-3" aria-label="AutoDome home">
           <span
             className={cn(
-              "grid h-10 w-10 place-items-center rounded-xl bg-primary text-primary-foreground font-display text-lg font-bold transition-colors",
-              !scrolled && "shadow-brand",
+              "grid h-11 w-11 place-items-center rounded-xl p-1.5 transition-colors",
+              scrolled ? "bg-foreground/5" : "bg-primary-foreground/10",
             )}
           >
-            A
+            <img
+              src={logo.url}
+              alt="AutoDome logo"
+              width={44}
+              height={44}
+              className="h-full w-full object-contain"
+            />
           </span>
           <span className="leading-tight">
             <span
@@ -56,10 +63,11 @@ export function SiteHeader() {
                 scrolled ? "text-muted-foreground" : "text-primary-foreground/70",
               )}
             >
-              Powered by {SITE.parent}
+              Commercial Vehicle Technology
             </span>
           </span>
         </a>
+
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
           {NAV_LINKS.map((link) => (
@@ -91,7 +99,7 @@ export function SiteHeader() {
             <Phone className="size-4" aria-hidden="true" />
             {SITE.phones[0]}
           </a>
-          <Button asChild variant={scrolled ? "hero" : "onImage"}>
+          <Button asChild variant="hero">
             <a href="#contact">Request Consultation</a>
           </Button>
         </div>

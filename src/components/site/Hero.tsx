@@ -49,7 +49,7 @@ export function Hero() {
             <span className="text-accent">Advanced Vehicle Technology</span>
           </h1>
 
-          <p className="mt-7 max-w-2xl text-base leading-relaxed text-primary-foreground/85 sm:text-lg">
+          <p className="mt-7 max-w-2xl text-base leading-relaxed text-primary-foreground sm:text-lg">
             AutoDome delivers advanced commercial vehicle diagnostics, ECU solutions, repairs,
             genuine parts, technical training, and workshop technology solutions for fleets,
             workshops, and industrial vehicle operators.

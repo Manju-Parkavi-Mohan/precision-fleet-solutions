@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useInView } from "./Reveal";
 
 const STATS = [
-  { value: 12500, suffix: "+", label: "Vehicles Diagnosed" },
-  { value: 320, suffix: "+", label: "Fleet Customers" },
+  { value: 10, suffix: "K+", label: "Vehicles Serviced" },
+  { value: 1, suffix: "K+", label: "Happy Clients" },
   { value: 10, suffix: "+", label: "Years Experience" },
-  { value: 18, suffix: "", label: "Countries Served" },
+  { value: 24, suffix: "/7", label: "Hour Support" },
 ];
 
 function Counter({ value, suffix, active }: { value: number; suffix: string; active: boolean }) {
