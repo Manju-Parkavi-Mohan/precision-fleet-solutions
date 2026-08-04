@@ -7,6 +7,7 @@ import { Services } from "@/components/site/Services";
 import { Credentials } from "@/components/site/Credentials";
 import { WhyAutoDome } from "@/components/site/WhyAutoDome";
 import { Industries } from "@/components/site/Industries";
+import { AdlStore } from "@/components/site/AdlStore";
 import { Brands } from "@/components/site/Brands";
 import { Stats } from "@/components/site/Stats";
 import { Gallery } from "@/components/site/Gallery";
@@ -102,6 +103,7 @@ function Index() {
         <WhyAutoDome />
         <Industries />
         <Brands />
+        <AdlStore />
         <Stats />
         <Gallery />
         <Training />
