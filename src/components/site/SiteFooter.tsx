@@ -123,8 +123,17 @@ export function SiteFooter() {
         <div className="mt-16 flex flex-col gap-4 border-t border-primary-foreground/15 pt-8 text-xs text-primary-foreground/60 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} AutoDome. All rights reserved.</p>
           <p className="font-semibold tracking-wide text-primary-foreground/80">
-            Powered by {SITE.parent}
+            Online store:{" "}
+            <a
+              href={SITE.storefront.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:underline"
+            >
+              {SITE.storefront.name}
+            </a>
           </p>
+
         </div>
       </div>
     </footer>

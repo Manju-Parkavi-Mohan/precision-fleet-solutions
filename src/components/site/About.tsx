@@ -29,12 +29,13 @@ export function About() {
           </div>
           <div className="mt-6 rounded-2xl border border-border bg-card p-6 shadow-soft sm:absolute sm:-bottom-10 sm:-right-6 sm:mt-0 sm:max-w-xs lg:-right-10">
             <p className="font-display text-sm font-bold uppercase tracking-[0.16em] text-primary">
-              Backed by {SITE.parent}
+              Shop online at {SITE.storefront.name}
             </p>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              AutoDome operates as an independent technology brand associated with {SITE.parent},
-              combining group-level resources with specialist commercial vehicle engineering.
+              {SITE.storefront.name} is our e-commerce storefront, delivering the tools, parts, and
+              workshop equipment behind every AutoDome service.
             </p>
+
           </div>
         </Reveal>
 

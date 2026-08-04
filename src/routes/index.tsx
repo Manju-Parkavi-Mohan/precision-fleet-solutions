@@ -30,7 +30,7 @@ const STRUCTURED_DATA = {
   description: DESCRIPTION,
   email: SITE.email,
   telephone: SITE.phones[0],
-  parentOrganization: { "@type": "Organization", name: SITE.parent },
+  subOrganization: { "@type": "Organization", name: SITE.storefront.name, url: SITE.storefront.url },
   address: {
     "@type": "PostalAddress",
     streetAddress: "407A, Al Sajaa Industrial",
