@@ -35,11 +35,17 @@ export function SiteHeader() {
         <a href="#top" className="group flex items-center gap-3" aria-label="AutoDome home">
           <span
             className={cn(
-              "grid h-10 w-10 place-items-center rounded-xl bg-primary text-primary-foreground font-display text-lg font-bold transition-colors",
-              !scrolled && "shadow-brand",
+              "grid h-11 w-11 place-items-center rounded-xl p-1.5 transition-colors",
+              scrolled ? "bg-foreground/5" : "bg-primary-foreground/10",
             )}
           >
-            A
+            <img
+              src={logo.url}
+              alt="AutoDome logo"
+              width={44}
+              height={44}
+              className="h-full w-full object-contain"
+            />
           </span>
           <span className="leading-tight">
             <span
@@ -56,10 +62,11 @@ export function SiteHeader() {
                 scrolled ? "text-muted-foreground" : "text-primary-foreground/70",
               )}
             >
-              Powered by {SITE.parent}
+              Commercial Vehicle Technology
             </span>
           </span>
         </a>
+
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
           {NAV_LINKS.map((link) => (
