@@ -1,5 +1,7 @@
-import { BadgeCheck, Leaf, ShieldCheck, Handshake } from "lucide-react";
+import { BadgeCheck, Leaf, ShieldCheck } from "lucide-react";
 import { Reveal } from "./Reveal";
+import magicLogo from "@/assets/magic-motorsport.jpg.asset.json";
+import jaltestLogo from "@/assets/jaltest.jpg.asset.json";
 
 const CERTIFICATIONS = [
   {
@@ -26,11 +28,13 @@ const PARTNERS = [
   {
     name: "Magic Motorsport",
     role: "Authorized Partner",
+    logo: magicLogo.url,
     body: "ECU tuning tools, programming hardware, and file services backed by factory-level support.",
   },
   {
     name: "Jaltest Diagnostics",
     role: "Authorized Partner",
+    logo: jaltestLogo.url,
     body: "Multi-brand commercial vehicle diagnostics covering trucks, buses, agriculture, and construction.",
   },
 ];
@@ -70,8 +74,16 @@ export function Credentials() {
           {PARTNERS.map((partner, index) => (
             <Reveal key={partner.name} delay={index * 90}>
               <article className="flex h-full flex-col gap-6 rounded-3xl border border-border bg-surface p-9 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lifted sm:flex-row sm:items-center">
-                <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-card text-primary shadow-soft">
-                  <Handshake className="size-7" aria-hidden="true" />
+                <span className="grid h-20 w-32 shrink-0 place-items-center rounded-2xl bg-card p-3 shadow-soft">
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    width={128}
+                    height={80}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-contain"
+                  />
                 </span>
                 <div>
                   <p className="font-display text-xl font-bold text-foreground">{partner.name}</p>
