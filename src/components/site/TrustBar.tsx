@@ -26,19 +26,6 @@ export function TrustBar() {
             ))}
           </div>
         </Reveal>
-
-        <Reveal delay={120}>
-          <ul className="no-scrollbar mt-12 flex gap-3 overflow-x-auto pb-1 sm:flex-wrap sm:justify-center sm:overflow-visible">
-            {BADGES.map((badge) => (
-              <li
-                key={badge}
-                className="shrink-0 rounded-full border border-border bg-surface px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground"
-              >
-                {badge}
-              </li>
-            ))}
-          </ul>
-        </Reveal>
       </div>
     </section>
   );
