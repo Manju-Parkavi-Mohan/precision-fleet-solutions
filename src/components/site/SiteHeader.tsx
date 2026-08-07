@@ -34,21 +34,14 @@ export function SiteHeader() {
     >
       <div className="section-shell flex h-20 items-center justify-between gap-4 sm:h-24 sm:gap-6">
         <a href="#top" className="group flex min-w-0 items-center gap-3" aria-label="AutoDome home">
-          <span
-            className={cn(
-              "grid h-14 w-14 shrink-0 place-items-center rounded-xl p-1.5 transition-colors sm:h-16 sm:w-16",
-              scrolled ? "bg-foreground/5" : "bg-primary-foreground/10",
-            )}
-          >
-            <img
-              src={logo.url}
-              alt="AutoDome logo"
-              width={64}
-              height={64}
-              className="h-full w-full object-contain"
-            />
-          </span>
-          <span className="min-w-0 leading-tight">
+          <img
+            src={logo.url}
+            alt="AutoDome logo"
+            width={200}
+            height={80}
+            className="h-14 w-auto shrink-0 object-contain sm:h-16 lg:h-[72px]"
+          />
+          <span className="hidden min-w-0 leading-tight sm:block">
             <span
               className={cn(
                 "block font-display text-lg font-bold tracking-tight transition-colors sm:text-xl",
