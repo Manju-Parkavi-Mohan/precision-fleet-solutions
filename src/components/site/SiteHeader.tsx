@@ -41,7 +41,7 @@ export function SiteHeader() {
             height={80}
             className="h-14 w-auto shrink-0 object-contain sm:h-16 lg:h-[72px]"
           />
-          <span className="hidden min-w-0 leading-tight sm:block">
+          <span className="hidden min-w-0 leading-tight sm:block lg:hidden xl:block">
             <span
               className={cn(
                 "block font-display text-lg font-bold tracking-tight transition-colors sm:text-xl",
@@ -62,13 +62,13 @@ export function SiteHeader() {
         </a>
 
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-8" aria-label="Primary">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className={cn(
-                "relative text-sm font-semibold transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full",
+                "relative whitespace-nowrap text-sm font-semibold transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full",
                 scrolled
                   ? "text-muted-foreground hover:text-primary"
                   : "text-primary-foreground/85 hover:text-primary-foreground",
@@ -83,7 +83,7 @@ export function SiteHeader() {
           <a
             href={`tel:${SITE.phones[0].replace(/\s/g, "")}`}
             className={cn(
-              "flex items-center gap-2 text-sm font-semibold transition-colors",
+              "hidden items-center gap-2 whitespace-nowrap text-sm font-semibold transition-colors xl:flex",
               scrolled
                 ? "text-foreground hover:text-primary"
                 : "text-primary-foreground hover:text-accent",
@@ -92,10 +92,11 @@ export function SiteHeader() {
             <Phone className="size-4" aria-hidden="true" />
             {SITE.phones[0]}
           </a>
-          <Button asChild variant="hero">
+          <Button asChild variant="hero" className="whitespace-nowrap">
             <a href="#contact">Request Consultation</a>
           </Button>
         </div>
+
 
         <button
           type="button"
