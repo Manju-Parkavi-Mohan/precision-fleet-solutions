@@ -5,7 +5,7 @@ import { TrustBar } from "@/components/site/TrustBar";
 import { About } from "@/components/site/About";
 import { Services } from "@/components/site/Services";
 import { Credentials } from "@/components/site/Credentials";
-import { WhyAutoDome } from "@/components/site/WhyAutoDome";
+import { Partners } from "@/components/site/Partners";
 import { Industries } from "@/components/site/Industries";
 import { AdlStore } from "@/components/site/AdlStore";
 import { Brands } from "@/components/site/Brands";

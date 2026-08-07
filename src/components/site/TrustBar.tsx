@@ -7,13 +7,6 @@ const METRICS = [
   { value: "2", label: "Global authorised partnerships" },
 ];
 
-const BADGES = [
-  "Magic Motorsport Authorized Partner",
-  "Jaltest Diagnostics Authorized Partner",
-  "ISO 9001:2015",
-  "ISO 14001:2015",
-  "ISO 45001:2018",
-];
 
 export function TrustBar() {
   return (
