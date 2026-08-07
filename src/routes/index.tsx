@@ -100,11 +100,11 @@ function Index() {
         <About />
         <Services />
         <Credentials />
-        <WhyAutoDome />
         <Industries />
-        <Brands />
         <AdlStore />
         <Stats />
+        <Brands />
+        <Partners />
         <Gallery />
         <Training />
         <Testimonials />
