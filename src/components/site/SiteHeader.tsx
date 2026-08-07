@@ -32,26 +32,19 @@ export function SiteHeader() {
           : "border-b border-transparent",
       )}
     >
-      <div className="section-shell flex h-20 items-center justify-between gap-6">
-        <a href="#top" className="group flex items-center gap-3" aria-label="AutoDome home">
-          <span
-            className={cn(
-              "grid h-11 w-11 place-items-center rounded-xl p-1.5 transition-colors",
-              scrolled ? "bg-foreground/5" : "bg-primary-foreground/10",
-            )}
-          >
-            <img
-              src={logo.url}
-              alt="AutoDome logo"
-              width={44}
-              height={44}
-              className="h-full w-full object-contain"
-            />
-          </span>
-          <span className="leading-tight">
+      <div className="section-shell flex h-20 items-center justify-between gap-4 sm:h-24 sm:gap-6">
+        <a href="#top" className="group flex min-w-0 items-center gap-3" aria-label="AutoDome home">
+          <img
+            src={logo.url}
+            alt="AutoDome logo"
+            width={200}
+            height={80}
+            className="h-14 w-auto shrink-0 object-contain sm:h-16 lg:h-[72px]"
+          />
+          <span className="hidden min-w-0 leading-tight sm:block lg:hidden xl:block">
             <span
               className={cn(
-                "block font-display text-lg font-bold tracking-tight transition-colors",
+                "block font-display text-lg font-bold tracking-tight transition-colors sm:text-xl",
                 scrolled ? "text-foreground" : "text-primary-foreground lg:text-primary-foreground",
               )}
             >
@@ -59,7 +52,7 @@ export function SiteHeader() {
             </span>
             <span
               className={cn(
-                "block text-[10px] font-semibold uppercase tracking-[0.22em] transition-colors",
+                "block truncate text-[9px] font-semibold uppercase tracking-[0.2em] transition-colors sm:text-[10px] sm:tracking-[0.22em]",
                 scrolled ? "text-muted-foreground" : "text-primary-foreground/70",
               )}
             >
@@ -69,13 +62,13 @@ export function SiteHeader() {
         </a>
 
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-8" aria-label="Primary">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className={cn(
-                "relative text-sm font-semibold transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full",
+                "relative whitespace-nowrap text-sm font-semibold transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full",
                 scrolled
                   ? "text-muted-foreground hover:text-primary"
                   : "text-primary-foreground/85 hover:text-primary-foreground",
@@ -90,7 +83,7 @@ export function SiteHeader() {
           <a
             href={`tel:${SITE.phones[0].replace(/\s/g, "")}`}
             className={cn(
-              "flex items-center gap-2 text-sm font-semibold transition-colors",
+              "hidden items-center gap-2 whitespace-nowrap text-sm font-semibold transition-colors xl:flex",
               scrolled
                 ? "text-foreground hover:text-primary"
                 : "text-primary-foreground hover:text-accent",
@@ -99,10 +92,11 @@ export function SiteHeader() {
             <Phone className="size-4" aria-hidden="true" />
             {SITE.phones[0]}
           </a>
-          <Button asChild variant="hero">
+          <Button asChild variant="hero" className="whitespace-nowrap">
             <a href="#contact">Request Consultation</a>
           </Button>
         </div>
+
 
         <button
           type="button"
@@ -141,8 +135,22 @@ export function SiteHeader() {
           )}
           style={{ transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)" }}
         >
-          <div className="flex items-center justify-between">
-            <span className="font-display text-lg font-bold">AUTODOME</span>
+          <div className="flex items-center justify-between gap-3">
+            <span className="flex min-w-0 items-center gap-3">
+              <img
+                src={logo.url}
+                alt="AutoDome logo"
+                width={180}
+                height={72}
+                className="h-14 w-auto shrink-0 object-contain"
+              />
+              <span className="min-w-0 leading-tight">
+                <span className="block font-display text-lg font-bold tracking-tight">AUTODOME</span>
+                <span className="block truncate text-[9px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  Commercial Vehicle Technology
+                </span>
+              </span>
+            </span>
             <button
               type="button"
               onClick={() => setOpen(false)}

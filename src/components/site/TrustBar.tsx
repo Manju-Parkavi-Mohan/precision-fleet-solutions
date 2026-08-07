@@ -7,13 +7,6 @@ const METRICS = [
   { value: "2", label: "Global authorised partnerships" },
 ];
 
-const BADGES = [
-  "Magic Motorsport Authorized Partner",
-  "Jaltest Diagnostics Authorized Partner",
-  "ISO 9001:2015",
-  "ISO 14001:2015",
-  "ISO 45001:2018",
-];
 
 export function TrustBar() {
   return (
@@ -32,19 +25,6 @@ export function TrustBar() {
               </div>
             ))}
           </div>
-        </Reveal>
-
-        <Reveal delay={120}>
-          <ul className="no-scrollbar mt-12 flex gap-3 overflow-x-auto pb-1 sm:flex-wrap sm:justify-center sm:overflow-visible">
-            {BADGES.map((badge) => (
-              <li
-                key={badge}
-                className="shrink-0 rounded-full border border-border bg-surface px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground"
-              >
-                {badge}
-              </li>
-            ))}
-          </ul>
         </Reveal>
       </div>
     </section>
