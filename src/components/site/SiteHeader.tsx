@@ -48,10 +48,10 @@ export function SiteHeader() {
               className="h-full w-full object-contain"
             />
           </span>
-          <span className="leading-tight">
+          <span className="min-w-0 leading-tight">
             <span
               className={cn(
-                "block font-display text-lg font-bold tracking-tight transition-colors",
+                "block font-display text-lg font-bold tracking-tight transition-colors sm:text-xl",
                 scrolled ? "text-foreground" : "text-primary-foreground lg:text-primary-foreground",
               )}
             >
@@ -59,7 +59,7 @@ export function SiteHeader() {
             </span>
             <span
               className={cn(
-                "block text-[10px] font-semibold uppercase tracking-[0.22em] transition-colors",
+                "block truncate text-[9px] font-semibold uppercase tracking-[0.2em] transition-colors sm:text-[10px] sm:tracking-[0.22em]",
                 scrolled ? "text-muted-foreground" : "text-primary-foreground/70",
               )}
             >
