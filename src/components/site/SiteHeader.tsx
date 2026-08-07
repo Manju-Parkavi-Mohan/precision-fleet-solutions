@@ -141,8 +141,24 @@ export function SiteHeader() {
           )}
           style={{ transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)" }}
         >
-          <div className="flex items-center justify-between">
-            <span className="font-display text-lg font-bold">AUTODOME</span>
+          <div className="flex items-center justify-between gap-3">
+            <span className="flex min-w-0 items-center gap-3">
+              <span className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-foreground/5 p-1.5">
+                <img
+                  src={logo.url}
+                  alt="AutoDome logo"
+                  width={56}
+                  height={56}
+                  className="h-full w-full object-contain"
+                />
+              </span>
+              <span className="min-w-0 leading-tight">
+                <span className="block font-display text-lg font-bold tracking-tight">AUTODOME</span>
+                <span className="block truncate text-[9px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  Commercial Vehicle Technology
+                </span>
+              </span>
+            </span>
             <button
               type="button"
               onClick={() => setOpen(false)}
