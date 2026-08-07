@@ -85,7 +85,7 @@ export function About() {
 
             <Button asChild variant="hero" size="lg" className="mt-10 w-full sm:w-auto">
               <a href="#solutions">
-                Explore our solutions
+                Explore our services
                 <ArrowRight className="size-4" aria-hidden="true" />
               </a>
             </Button>

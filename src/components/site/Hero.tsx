@@ -63,7 +63,7 @@ export function Hero() {
               </a>
             </Button>
             <Button asChild variant="onImage" size="xl" className="w-full sm:w-auto">
-              <a href="#solutions">Explore Solutions</a>
+              <a href="#solutions">Explore Services</a>
             </Button>
           </div>
         </div>

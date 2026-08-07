@@ -19,7 +19,7 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { label: "About", href: "#about" },
-  { label: "Solutions", href: "#solutions" },
+  { label: "Services", href: "#solutions" },
   { label: "Industries", href: "#industries" },
   { label: "Training", href: "#training" },
   { label: "Online Store", href: "#store" },
