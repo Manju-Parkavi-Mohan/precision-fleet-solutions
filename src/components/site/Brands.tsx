@@ -15,34 +15,48 @@ const BRANDS = [
 ];
 
 export function Brands() {
+  const loop = [...BRANDS, ...BRANDS];
+
   return (
-    <section aria-label="Supported vehicle brands" className="border-y border-border bg-surface py-20 sm:py-24">
+    <section
+      aria-label="Supported vehicle brands"
+      className="border-y border-border bg-surface py-16 sm:py-20 lg:py-24"
+    >
       <div className="section-shell">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">
             <span className="h-px w-8 bg-accent" aria-hidden="true" />
             Supported Vehicle Brands
           </p>
-          <h2 className="mt-6 font-display text-2xl font-bold leading-tight sm:text-3xl">
+          <h2 className="mt-5 font-display text-xl font-bold leading-tight sm:text-2xl lg:text-3xl">
             Multi-brand coverage for trucks, buses, and off-highway equipment.
           </h2>
         </Reveal>
-
-        <Reveal delay={100}>
-          <ul className="no-scrollbar mt-12 flex gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-4 md:gap-5 md:overflow-visible lg:grid-cols-6">
-            {BRANDS.map((brand) => (
-              <li
-                key={brand}
-                className="group grid h-24 min-w-[190px] place-items-center rounded-2xl border border-border bg-card px-6 text-center opacity-60 grayscale transition-all duration-500 hover:-translate-y-1 hover:opacity-100 hover:shadow-soft hover:grayscale-0 md:min-w-0"
-              >
-                <span className="font-display text-base font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">
-                  {brand}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
       </div>
+
+      <div
+        className="marquee-mask mt-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+        aria-hidden="true"
+      >
+        <ul className="marquee-track flex w-max gap-4 pr-4">
+          {loop.map((brand, index) => (
+            <li
+              key={`${brand}-${index}`}
+              className="grid h-20 w-[170px] shrink-0 place-items-center rounded-2xl border border-border bg-card px-5 text-center sm:h-24 sm:w-[210px]"
+            >
+              <span className="font-display text-sm font-bold tracking-tight text-foreground sm:text-base">
+                {brand}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <ul className="sr-only">
+        {BRANDS.map((brand) => (
+          <li key={brand}>{brand}</li>
+        ))}
+      </ul>
     </section>
   );
 }
