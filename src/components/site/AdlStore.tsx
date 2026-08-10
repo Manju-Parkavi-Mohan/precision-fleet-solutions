@@ -50,9 +50,17 @@ export function AdlStore() {
               ADL Automotive — our e-commerce storefront
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              {SITE.storefront.name} is the online store of AutoDome, where workshops, fleets, and
-              technicians can buy diagnostic tools, ECU hardware, heavy-duty vehicle parts, and
-              workshop equipment directly — with the same technical support behind every order.
+              <a
+                href={SITE.storefront.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-primary underline underline-offset-4 transition-colors hover:text-accent"
+              >
+                {SITE.storefront.name}
+              </a>{" "}
+              is the online store of AutoDome, where workshops, fleets, and technicians can buy
+              diagnostic tools, ECU hardware, heavy-duty vehicle parts, and workshop equipment
+              directly — with the same technical support behind every order.
             </p>
 
             <ul className="mt-10 space-y-5">
