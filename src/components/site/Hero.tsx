@@ -91,7 +91,7 @@ export function Hero() {
                     height={120}
                     loading="lazy"
                     decoding="async"
-                    className="h-10 w-auto max-w-[170px] object-contain sm:h-12 sm:max-w-[200px]"
+                    className="h-12 w-auto max-w-[200px] object-contain sm:h-14 sm:max-w-[240px]"
                   />
                 </li>
               ))}
