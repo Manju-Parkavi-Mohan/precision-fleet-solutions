@@ -141,7 +141,7 @@ export function Services() {
   }, [paused, total]);
 
   return (
-    <section id="solutions" className="bg-surface py-20 sm:py-28 lg:py-36">
+    <section id="solutions" className="section-dark py-20 sm:py-28 lg:py-36">
       <div className="section-shell">
         <Reveal className="max-w-3xl">
           <p className="eyebrow">
