@@ -140,13 +140,16 @@ export function SiteHeader() {
         >
           <div className="flex items-center justify-between gap-3">
             <span className="flex min-w-0 items-center gap-3">
-              <img
-                src={logo.url}
-                alt="AutoDome logo"
-                width={180}
-                height={72}
-                className="h-14 w-auto shrink-0 object-contain"
-              />
+              <span className="grid shrink-0 place-items-center rounded-2xl bg-foreground px-3 py-2">
+                <img
+                  src={logo.url}
+                  alt="AutoDome logo"
+                  width={180}
+                  height={72}
+                  className="h-11 w-auto object-contain"
+                />
+              </span>
+
               <span className="min-w-0 leading-tight">
                 <span className="block font-display text-lg font-bold tracking-tight">AUTODOME</span>
                 <span className="block truncate text-[9px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
