@@ -5,7 +5,6 @@ import { TrustBar } from "@/components/site/TrustBar";
 import { About } from "@/components/site/About";
 import { Services } from "@/components/site/Services";
 import { Credentials } from "@/components/site/Credentials";
-import { Partners } from "@/components/site/Partners";
 import { Industries } from "@/components/site/Industries";
 import { AdlStore } from "@/components/site/AdlStore";
 import { Brands } from "@/components/site/Brands";
@@ -97,14 +96,13 @@ function Index() {
       <main>
         <Hero />
         <TrustBar />
+        <Brands />
         <About />
         <Services />
         <Credentials />
         <Industries />
         <AdlStore />
         <Stats />
-        <Brands />
-        <Partners />
         <Gallery />
         <Training />
         <Testimonials />

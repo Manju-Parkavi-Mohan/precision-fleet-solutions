@@ -42,12 +42,12 @@ export function Training() {
         <div className="mt-14 grid gap-5 sm:grid-cols-3">
           {PILLARS.map((pillar, index) => (
             <Reveal key={pillar.title} delay={index * 90}>
-              <div className="h-full rounded-2xl border border-primary-foreground/20 bg-primary-foreground/10 p-7 backdrop-blur-sm">
+              <div className="h-full rounded-2xl border border-primary-foreground/25 bg-foreground/80 p-7 shadow-lifted backdrop-blur-md">
                 <pillar.Icon className="size-6 text-accent" aria-hidden="true" />
                 <h3 className="mt-5 font-display text-lg font-bold text-primary-foreground">
                   {pillar.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-primary-foreground/80">
+                <p className="mt-2 text-sm leading-relaxed text-primary-foreground">
                   {pillar.body}
                 </p>
               </div>
