@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useInView } from "./Reveal";
+import { useEffect, useRef, useState } from "react";
 
 const STATS = [
   { value: 10, suffix: "K+", label: "Vehicles Serviced" },
@@ -8,11 +7,33 @@ const STATS = [
   { value: 24, suffix: "/7", label: "Hour Support" },
 ];
 
-function Counter({ value, suffix, active }: { value: number; suffix: string; active: boolean }) {
+function useRollTrigger<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
+  const [run, setRun] = useState(0);
+
+  useEffect(() => {
+    // roll once on first load, then again every time the block scrolls into view
+    setRun((n) => n + 1);
+    const node = ref.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) setRun((n) => n + 1);
+      },
+      { threshold: 0.3 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return { ref, run };
+}
+
+function Counter({ value, suffix, run }: { value: number; suffix: string; run: number }) {
   const [display, setDisplay] = useState(0);
 
   useEffect(() => {
-    if (!active) return;
+    if (!run) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setDisplay(value);
       return;
@@ -26,9 +47,10 @@ function Counter({ value, suffix, active }: { value: number; suffix: string; act
       setDisplay(Math.round(value * eased));
       if (progress < 1) frame = requestAnimationFrame(tick);
     };
+    setDisplay(0);
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [active, value]);
+  }, [run, value]);
 
   return (
     <span>
@@ -39,7 +61,7 @@ function Counter({ value, suffix, active }: { value: number; suffix: string; act
 }
 
 export function Stats() {
-  const { ref, inView } = useInView<HTMLDivElement>();
+  const { ref, run } = useRollTrigger<HTMLDivElement>();
 
   return (
     <section aria-label="Company statistics" className="bg-primary py-20 sm:py-28 lg:py-32">
@@ -58,7 +80,7 @@ export function Stats() {
               ].join(" ")}
             >
               <p className="font-display text-3xl font-bold tracking-[0.06em] text-primary-foreground sm:text-5xl lg:text-6xl">
-                <Counter value={stat.value} suffix={stat.suffix} active={inView} />
+                <Counter value={stat.value} suffix={stat.suffix} run={run} />
               </p>
               <p className="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground/70 sm:text-sm">
                 {stat.label}

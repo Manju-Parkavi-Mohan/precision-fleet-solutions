@@ -19,7 +19,7 @@ const INDUSTRIES = [
 
 export function Industries() {
   return (
-    <section id="industries" className="bg-background py-24 sm:py-32 lg:py-40">
+    <section id="industries" className="section-dark py-24 sm:py-32 lg:py-40">
       <div className="section-shell">
         <Reveal className="max-w-3xl">
           <p className="eyebrow">

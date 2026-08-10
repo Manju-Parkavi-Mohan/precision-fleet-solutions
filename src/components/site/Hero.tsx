@@ -2,6 +2,13 @@ import { useEffect, useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-workshop.jpg";
+import magicLogo from "@/assets/magic-motorsport.jpg.asset.json";
+import jaltestLogo from "@/assets/jaltest.jpg.asset.json";
+
+const HERO_PARTNERS = [
+  { name: "Magic Motorsport", logo: magicLogo.url },
+  { name: "Jaltest Diagnostics", logo: jaltestLogo.url },
+];
 
 export function Hero() {
   const [offset, setOffset] = useState(0);
@@ -65,6 +72,30 @@ export function Hero() {
             <Button asChild variant="onImage" size="xl" className="w-full sm:w-auto">
               <a href="#solutions">Explore Services</a>
             </Button>
+          </div>
+
+          <div className="mt-10 border-t border-primary-foreground/20 pt-6 sm:mt-12">
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-primary-foreground/80">
+              Authorized Partners
+            </p>
+            <ul className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+              {HERO_PARTNERS.map((partner) => (
+                <li
+                  key={partner.name}
+                  className="flex w-full items-center justify-center rounded-2xl bg-primary-foreground/95 px-5 py-3 shadow-soft sm:w-auto"
+                >
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} authorized partner logo`}
+                    width={320}
+                    height={120}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-12 w-auto max-w-[200px] object-contain sm:h-14 sm:max-w-[240px]"
+                  />
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

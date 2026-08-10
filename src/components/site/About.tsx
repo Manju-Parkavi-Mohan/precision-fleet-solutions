@@ -35,7 +35,15 @@ export function About() {
               {SITE.storefront.name} is our e-commerce storefront, delivering the tools, parts, and
               workshop equipment behind every AutoDome service.
             </p>
-
+            <a
+              href={SITE.storefront.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-primary underline-offset-4 hover:underline"
+            >
+              Visit the {SITE.storefront.name} store
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </a>
           </div>
         </Reveal>
 

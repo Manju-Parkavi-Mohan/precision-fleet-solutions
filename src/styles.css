@@ -306,3 +306,28 @@
     animation: none;
   }
 }
+
+/* Dark rhythm sections: re-scope semantic tokens so children invert automatically */
+.section-dark {
+  --background: oklch(0.235 0.021 258);
+  --surface: oklch(0.28 0.024 258);
+  --foreground: oklch(0.98 0.003 250);
+  --card: oklch(0.29 0.025 258);
+  --card-foreground: oklch(0.98 0.003 250);
+  --muted: oklch(0.31 0.025 258);
+  --muted-foreground: oklch(0.82 0.012 258);
+  --secondary: oklch(0.31 0.025 258);
+  --secondary-foreground: oklch(0.98 0.003 250);
+  --primary: oklch(0.55 0.172 262);
+  --primary-foreground: oklch(0.99 0.002 250);
+  --primary-soft: oklch(0.32 0.045 258);
+  --border: oklch(1 0 0 / 14%);
+  --input: oklch(1 0 0 / 18%);
+  --accent-soft: oklch(0.34 0.05 70);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.section-dark .eyebrow {
+  color: var(--accent);
+}
