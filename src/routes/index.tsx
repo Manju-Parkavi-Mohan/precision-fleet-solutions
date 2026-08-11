@@ -96,7 +96,9 @@ function Index() {
       <main>
         <Hero />
         <TrustBar />
+        <Brands />
         <About />
+        <Testimonials />
         <Services />
         <Credentials />
         <Industries />
@@ -104,12 +106,11 @@ function Index() {
         <Stats />
         <Gallery />
         <Training />
-        <Testimonials />
-        <Brands />
         <Faq />
         <FinalCta />
         <Contact />
       </main>
+
       <SiteFooter />
       <FloatingActions />
     </div>
