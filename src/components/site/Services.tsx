@@ -86,7 +86,7 @@ function ServiceSlide({
       </div>
 
       <div>
-        <p className="font-display text-sm font-bold tracking-[0.2em] text-accent">
+        <p className="font-display text-sm font-bold tracking-[0.2em] text-primary-foreground/70">
           {String(index + 1).padStart(2, "0")}
         </p>
         <h3 className="mt-3 font-display text-xl font-bold leading-snug sm:text-2xl lg:text-3xl">
@@ -99,7 +99,7 @@ function ServiceSlide({
               type="button"
               onClick={() => setExpanded((v) => !v)}
               aria-expanded={expanded}
-              className="inline font-semibold text-primary underline-offset-4 transition-colors hover:text-accent hover:underline"
+              className="inline font-semibold text-primary-foreground underline underline-offset-4 transition-opacity hover:opacity-80"
             >
               {expanded ? "Show less" : "Learn more"}
             </button>
@@ -107,7 +107,7 @@ function ServiceSlide({
         </p>
 
         <div className="mt-6">
-          <Button asChild variant="hero" className="w-full sm:w-auto">
+          <Button asChild variant="light" className="w-full sm:w-auto">
             <a href="#contact">
               Request Consultation
               <ArrowRight className="size-4" aria-hidden="true" />
@@ -144,8 +144,8 @@ export function Services() {
     <section id="solutions" className="section-dark py-20 sm:py-28 lg:py-36">
       <div className="section-shell">
         <Reveal className="max-w-3xl">
-          <p className="eyebrow">
-            <span className="h-px w-8 bg-accent" aria-hidden="true" />
+          <p className="eyebrow !text-primary-foreground">
+            <span className="h-px w-8 bg-primary-foreground" aria-hidden="true" />
             Services
           </p>
           <h2 className="mt-5 font-display text-2xl font-bold leading-tight sm:text-4xl lg:text-5xl">
@@ -190,7 +190,7 @@ export function Services() {
                 type="button"
                 onClick={() => go(-1)}
                 aria-label="Previous service"
-                className="grid size-11 shrink-0 place-items-center rounded-full border border-border bg-card text-foreground transition-colors hover:border-primary hover:text-primary"
+                className="grid size-11 shrink-0 place-items-center rounded-full border border-primary-foreground/30 bg-transparent text-primary-foreground transition-colors hover:border-primary-foreground hover:bg-primary-foreground hover:text-ink"
               >
                 <ChevronLeft className="size-5" aria-hidden="true" />
               </button>
@@ -205,7 +205,9 @@ export function Services() {
                     aria-current={index === active}
                     className={cn(
                       "h-2 rounded-full transition-all",
-                      index === active ? "w-7 bg-primary" : "w-2 bg-border hover:bg-primary/50",
+                      index === active
+                        ? "w-7 bg-primary-foreground"
+                        : "w-2 bg-primary-foreground/35 hover:bg-primary-foreground/70",
                     )}
                   />
                 ))}
@@ -215,7 +217,7 @@ export function Services() {
                 type="button"
                 onClick={() => go(1)}
                 aria-label="Next service"
-                className="grid size-11 shrink-0 place-items-center rounded-full border border-border bg-card text-foreground transition-colors hover:border-primary hover:text-primary"
+                className="grid size-11 shrink-0 place-items-center rounded-full border border-primary-foreground/30 bg-transparent text-primary-foreground transition-colors hover:border-primary-foreground hover:bg-primary-foreground hover:text-ink"
               >
                 <ChevronRight className="size-5" aria-hidden="true" />
               </button>

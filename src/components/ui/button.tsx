@@ -12,6 +12,8 @@ const buttonVariants = cva(
         default:
           "bg-primary text-primary-foreground shadow-soft hover:bg-primary-deep hover:-translate-y-0.5 hover:shadow-brand",
         hero: "bg-primary text-primary-foreground shadow-brand hover:bg-primary-deep hover:-translate-y-0.5",
+        light:
+          "bg-primary-foreground text-ink shadow-lifted hover:bg-primary-foreground/90 hover:-translate-y-0.5",
         outlineBrand:
           "border border-primary/40 bg-card text-primary hover:bg-primary hover:text-primary-foreground hover:-translate-y-0.5 hover:shadow-brand",
         onImage:

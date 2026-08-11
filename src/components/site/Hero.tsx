@@ -29,7 +29,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="top" className="relative isolate flex min-h-[92vh] items-end overflow-hidden lg:h-screen lg:min-h-[720px]">
+    <section id="top" className="relative isolate flex min-h-[100svh] items-center overflow-hidden">
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <img
           src={heroImage}
@@ -44,25 +44,25 @@ export function Hero() {
         <div className="absolute inset-0 bg-hero-veil" />
       </div>
 
-      <div className="section-shell pb-16 pt-32 sm:pb-24 lg:pb-28">
-        <div className="max-w-3xl">
+      <div className="section-shell pb-16 pt-28 sm:pt-32 lg:pb-20 lg:pt-36">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <p className="reveal is-visible inline-flex items-center gap-3 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.22em] text-primary-foreground backdrop-blur-sm">
             <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
             UAE&apos;s Commercial Vehicle Technology Partner
           </p>
 
-          <h1 className="mt-7 font-display text-4xl font-bold leading-[1.06] text-primary-foreground sm:text-5xl lg:text-[4.25rem]">
+          <h1 className="mt-7 font-display text-3xl font-bold leading-[1.1] text-primary-foreground sm:text-4xl lg:text-5xl">
             Powering Smarter Mobility Through{" "}
             <span className="text-accent">Advanced Vehicle Technology</span>
           </h1>
 
-          <p className="mt-7 max-w-2xl text-base leading-relaxed text-primary-foreground sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground sm:text-lg">
             AutoDome delivers advanced commercial vehicle diagnostics, ECU solutions, repairs,
             genuine parts, technical training, and workshop technology solutions for fleets,
             workshops, and industrial vehicle operators.
           </p>
 
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center sm:justify-center">
             <Button asChild variant="hero" size="xl" className="w-full sm:w-auto">
               <a href="#contact">
                 Request Technical Consultation
@@ -74,16 +74,13 @@ export function Hero() {
             </Button>
           </div>
 
-          <div className="mt-10 border-t border-primary-foreground/20 pt-6 sm:mt-12">
+          <div className="mt-10 w-full border-t border-primary-foreground/20 pt-6">
             <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-primary-foreground/80">
               Authorized Partners
             </p>
-            <ul className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+            <ul className="mt-5 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-12">
               {HERO_PARTNERS.map((partner) => (
-                <li
-                  key={partner.name}
-                  className="flex w-full items-center justify-center rounded-2xl bg-primary-foreground/95 px-5 py-3 shadow-soft sm:w-auto"
-                >
+                <li key={partner.name} className="flex items-center justify-center">
                   <img
                     src={partner.logo}
                     alt={`${partner.name} authorized partner logo`}
@@ -91,7 +88,7 @@ export function Hero() {
                     height={120}
                     loading="lazy"
                     decoding="async"
-                    className="h-12 w-auto max-w-[200px] object-contain sm:h-14 sm:max-w-[240px]"
+                    className="h-16 w-auto max-w-[220px] object-contain sm:h-20 sm:max-w-[260px]"
                   />
                 </li>
               ))}
@@ -99,6 +96,7 @@ export function Hero() {
           </div>
         </div>
       </div>
+
 
       <div className="pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-primary-foreground/70 lg:block">
         <ChevronDown className="size-6 animate-bounce" aria-hidden="true" />
