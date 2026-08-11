@@ -96,7 +96,6 @@ function Index() {
       <main>
         <Hero />
         <TrustBar />
-        <Brands />
         <About />
         <Services />
         <Credentials />
@@ -106,6 +105,7 @@ function Index() {
         <Gallery />
         <Training />
         <Testimonials />
+        <Brands />
         <Faq />
         <FinalCta />
         <Contact />
