@@ -39,7 +39,7 @@ const FAQS = [
 
 export function Faq() {
   return (
-    <section className="section-dark py-24 sm:py-32 lg:py-40">
+    <section className="bg-surface py-24 sm:py-32 lg:py-40">
       <div className="section-shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
         <Reveal direction="left">
           <p className="eyebrow">
