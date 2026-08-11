@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS, SITE } from "@/lib/site";
-import logo from "@/assets/autodome-logo.png.asset.json";
+import logo from "@/assets/autodome-logo.png";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -36,7 +36,7 @@ export function SiteHeader() {
         <a href="#top" className="group flex min-w-0 items-center gap-3" aria-label="AutoDome home">
           <span className="grid shrink-0 place-items-center rounded-2xl bg-foreground px-3 py-2 shadow-soft">
             <img
-              src={logo.url}
+              src={logo}
               alt="AutoDome logo"
               width={200}
               height={80}
@@ -142,7 +142,7 @@ export function SiteHeader() {
             <span className="flex min-w-0 items-center gap-3">
               <span className="grid shrink-0 place-items-center rounded-2xl bg-foreground px-3 py-2">
                 <img
-                  src={logo.url}
+                  src={logo}
                   alt="AutoDome logo"
                   width={180}
                   height={72}
