@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-workshop.jpg";
-import magicLogo from "@/assets/magic-motorsport.jpg.asset.json";
-import jaltestLogo from "@/assets/jaltest.jpg.asset.json";
+import magicLogo from "@/assets/magic-motorsport.jpg";
+import jaltestLogo from "@/assets/jaltest.jpg";
 
 const HERO_PARTNERS = [
-  { name: "Magic Motorsport", logo: magicLogo.url },
-  { name: "Jaltest Diagnostics", logo: jaltestLogo.url },
+  { name: "Magic Motorsport", logo: magicLogo },
+  { name: "Jaltest Diagnostics", logo: jaltestLogo },
 ];
 
 export function Hero() {

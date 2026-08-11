@@ -1,6 +1,6 @@
 import { Mail, MapPin, Phone, Linkedin, Instagram, Facebook } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/lib/site";
-import logo from "@/assets/autodome-logo.png.asset.json";
+import logo from "@/assets/autodome-logo.png";
 
 const SERVICES = [
   "Diagnosis, Troubleshooting & Repair",
@@ -21,7 +21,7 @@ export function SiteFooter() {
             <div className="flex items-center gap-3">
               <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary-foreground/10 p-1.5">
                 <img
-                  src={logo.url}
+                  src={logo}
                   alt="AutoDome logo"
                   width={44}
                   height={44}
