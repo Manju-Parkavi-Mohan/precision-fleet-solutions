@@ -2,6 +2,7 @@ import { ArrowUpRight, PackageCheck, ShoppingCart, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./Reveal";
 import { SITE } from "@/lib/site";
+import { FeaturedProducts } from "./FeaturedProducts";
 import partsImg from "@/assets/service-parts.jpg";
 
 const POINTS = [
@@ -94,6 +95,10 @@ export function AdlStore() {
             </div>
           </Reveal>
         </div>
+
+        <Reveal>
+          <FeaturedProducts />
+        </Reveal>
       </div>
     </section>
   );

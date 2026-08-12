@@ -44,14 +44,9 @@ export function Hero() {
         <div className="absolute inset-0 bg-hero-veil" />
       </div>
 
-      <div className="section-shell pb-16 pt-28 sm:pt-32 lg:pb-20 lg:pt-36">
+      <div className="section-shell pb-16 pt-24 sm:pt-28 lg:pb-20 lg:pt-28">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <p className="reveal is-visible inline-flex items-center gap-3 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.22em] text-primary-foreground backdrop-blur-sm">
-            <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
-            UAE&apos;s Commercial Vehicle Technology Partner
-          </p>
-
-          <h1 className="mt-7 font-display text-3xl font-bold leading-[1.1] text-primary-foreground sm:text-4xl lg:text-5xl">
+          <h1 className="font-display text-3xl font-bold leading-[1.1] text-primary-foreground sm:text-4xl lg:text-5xl">
             Powering Smarter Mobility Through{" "}
             <span className="text-accent">Advanced Vehicle Technology</span>
           </h1>
@@ -75,10 +70,10 @@ export function Hero() {
           </div>
 
           <div className="mt-10 w-full border-t border-primary-foreground/20 pt-6">
-            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-primary-foreground/80">
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-primary-foreground sm:text-base">
               Authorized Partners
             </p>
-            <ul className="mt-5 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-12">
+            <ul className="mt-6 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-12">
               {HERO_PARTNERS.map((partner) => (
                 <li key={partner.name} className="flex items-center justify-center">
                   <img
@@ -88,7 +83,7 @@ export function Hero() {
                     height={120}
                     loading="lazy"
                     decoding="async"
-                    className="h-16 w-auto max-w-[220px] object-contain sm:h-20 sm:max-w-[260px]"
+                    className="h-24 w-auto max-w-[280px] rounded-2xl object-contain sm:h-28 sm:max-w-[320px]"
                   />
                 </li>
               ))}

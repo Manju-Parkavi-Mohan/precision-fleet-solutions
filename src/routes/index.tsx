@@ -98,8 +98,8 @@ function Index() {
         <TrustBar />
         <Brands />
         <About />
-        <Testimonials />
         <Services />
+        <Testimonials />
         <Credentials />
         <Industries />
         <AdlStore />
