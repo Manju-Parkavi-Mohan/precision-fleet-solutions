@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SITE } from "@/lib/site";
 
 type Product = {
@@ -17,11 +17,13 @@ type Product = {
 const money = (value: number | null) =>
   value == null ? null : `AED ${Number(value).toLocaleString("en-AE")}`;
 
+// The store serves product detail pages under /products/<slug>.
+const productHref = (url: string) => url.replace("/product/", "/products/");
+
 export function FeaturedProducts() {
   const [items, setItems] = useState<Product[] | null>(null);
   const [failed, setFailed] = useState(false);
   const [visible, setVisible] = useState(false);
-  const headerRef = useRef<HTMLDivElement | null>(null);
   const gridRef = useRef<HTMLUListElement | null>(null);
 
   useEffect(() => {
@@ -37,7 +39,6 @@ export function FeaturedProducts() {
     };
   }, []);
 
-  // Trigger the staggered entrance once the grid scrolls into view.
   useEffect(() => {
     const node = gridRef.current;
     if (!node) return;
@@ -59,55 +60,57 @@ export function FeaturedProducts() {
   const slots = items ?? Array.from({ length: 4 }).map(() => null);
 
   return (
-    <div className="mt-10 overflow-hidden rounded-3xl border border-border bg-card/70 p-5 shadow-soft sm:mt-12 sm:p-7 lg:mt-14">
-      {/* Integrated top bar */}
-      <div className="flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <p className="eyebrow">
-            <span className="h-px w-8 bg-accent" aria-hidden="true" />
-            Featured Products
-          </p>
-          <h3 className="mt-3 font-display text-2xl font-bold leading-tight sm:text-3xl">
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Featured products
-            </span>{" "}
-            in the store
-          </h3>
-          <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Handpicked professional diagnostic tools & engine solutions ready to dispatch.
-          </p>
+    <div className="mt-14 sm:mt-16">
+      {/* Gradient banner header, cards overlap the band below it */}
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-surface via-primary/70 to-primary px-5 pb-28 pt-10 sm:px-9 sm:pb-32 sm:pt-12">
+        <div className="flex flex-wrap items-center justify-between gap-5">
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-primary-foreground/70">
+              Curated performance &amp; diagnostic solutions
+            </p>
+            <h3 className="mt-3 font-display text-3xl font-bold uppercase leading-none tracking-tight sm:text-5xl">
+              <span className="bg-gradient-to-r from-primary-foreground/60 to-primary-foreground bg-clip-text text-transparent">
+                Featured products in the store
+              </span>
+            </h3>
+            <span className="mt-4 block h-1 w-24 rounded-full bg-primary-foreground/40" aria-hidden="true" />
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-primary-foreground/80">
+              Handpicked professional diagnostic tools &amp; engine solutions ready to dispatch.
+            </p>
+          </div>
+          <a
+            href={SITE.storefront.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 rounded-full bg-background px-6 py-3 text-sm font-bold text-foreground shadow-soft transition-all hover:gap-3"
+          >
+            View All Products
+            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+          </a>
         </div>
-        <a
-          href={SITE.storefront.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-soft transition-all hover:gap-2.5 hover:shadow-brand"
-        >
-          Explore Full Catalog
-          <ChevronRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-        </a>
       </div>
 
-      {/* Product grid */}
-      <ul ref={gridRef} className="mt-7 grid grid-cols-2 gap-5 lg:grid-cols-4">
+      {/* Product grid pulled up over the banner */}
+      <ul
+        ref={gridRef}
+        className="-mt-20 grid grid-cols-1 gap-5 px-1 sm:-mt-24 sm:grid-cols-2 lg:grid-cols-4"
+      >
         {slots.map((product, index) =>
           product ? (
             <li
               key={product.id}
               style={{ transitionDelay: `${index * 80}ms` }}
-              className={`group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:shadow-lifted ${
-                visible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-6 opacity-0"
+              className={`group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-lifted transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 ${
+                visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
               }`}
             >
               <a
-                href={product.url}
+                href={productHref(product.url)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-full flex-col"
+                className="flex h-full flex-col p-4"
               >
-                <div className="aspect-square overflow-hidden bg-surface">
+                <div className="aspect-square overflow-hidden rounded-xl bg-surface">
                   {product.image ? (
                     <img
                       src={product.image}
@@ -118,28 +121,41 @@ export function FeaturedProducts() {
                     />
                   ) : null}
                 </div>
-                <div className="flex flex-1 flex-col p-4">
+
+                <p className="mt-4 line-clamp-2 font-display text-base font-bold uppercase leading-snug text-foreground">
+                  {product.name}
+                </p>
+
+                <div className="mt-2 flex flex-wrap items-center gap-2">
                   {product.brand ? (
-                    <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
+                    <span className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                       {product.brand}
-                    </p>
+                    </span>
                   ) : null}
-                  <p className="mt-1 line-clamp-2 font-display text-sm font-bold text-foreground">
-                    {product.name}
-                  </p>
-                  <div className="mt-3 flex flex-wrap items-baseline gap-2">
-                    <span className="text-sm font-bold text-primary">
+                  <span
+                    className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold ${
+                      product.in_stock
+                        ? "bg-primary-soft text-primary"
+                        : "bg-muted text-muted-foreground"
+                    }`}
+                  >
+                    {product.in_stock ? "In Stock" : "Out of Stock"}
+                  </span>
+                </div>
+
+                <div className="mt-auto flex items-end justify-between gap-3 pt-4">
+                  <div>
+                    <span className="font-display text-xl font-bold text-foreground">
                       {money(product.price)}
                     </span>
                     {product.on_sale && product.regular_price ? (
-                      <span className="text-xs text-muted-foreground line-through">
+                      <span className="ml-2 text-xs text-muted-foreground line-through">
                         {money(product.regular_price)}
                       </span>
                     ) : null}
                   </div>
-                  <span className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-primary">
-                    View products
-                    <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                  <span className="inline-flex shrink-0 items-center rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-ink">
+                    View Details
                   </span>
                 </div>
               </a>
@@ -147,7 +163,7 @@ export function FeaturedProducts() {
           ) : (
             <li
               key={`skeleton-${index}`}
-              className="h-72 animate-pulse rounded-2xl border border-border bg-card"
+              className="h-80 animate-pulse rounded-2xl border border-border bg-card"
             />
           ),
         )}
