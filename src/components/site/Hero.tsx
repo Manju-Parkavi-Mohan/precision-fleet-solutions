@@ -70,10 +70,10 @@ export function Hero() {
           </div>
 
           <div className="mt-10 w-full border-t border-primary-foreground/20 pt-6">
-            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-primary-foreground/80">
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-primary-foreground sm:text-base">
               Authorized Partners
             </p>
-            <ul className="mt-5 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-12">
+            <ul className="mt-6 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-12">
               {HERO_PARTNERS.map((partner) => (
                 <li key={partner.name} className="flex items-center justify-center">
                   <img
@@ -83,7 +83,7 @@ export function Hero() {
                     height={120}
                     loading="lazy"
                     decoding="async"
-                    className="h-16 w-auto max-w-[220px] object-contain sm:h-20 sm:max-w-[260px]"
+                    className="h-24 w-auto max-w-[280px] rounded-2xl object-contain sm:h-28 sm:max-w-[320px]"
                   />
                 </li>
               ))}
