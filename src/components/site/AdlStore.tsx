@@ -95,6 +95,10 @@ export function AdlStore() {
             </div>
           </Reveal>
         </div>
+
+        <Reveal>
+          <FeaturedProducts />
+        </Reveal>
       </div>
     </section>
   );
