@@ -80,7 +80,7 @@ export function About() {
           </Reveal>
 
           <Reveal delay={180}>
-            <dl className="mt-12 grid grid-cols-2 gap-8 border-t border-border pt-10">
+            <dl className="mt-12 hidden grid-cols-2 gap-8 border-t border-border pt-10 sm:grid">
               {FACTS.map((fact) => (
                 <div key={fact.label}>
                   <dt className="font-display text-xl font-bold text-foreground sm:text-2xl">
