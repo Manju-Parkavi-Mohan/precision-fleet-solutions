@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { SITE } from "@/lib/site";
+import { buttonVariants } from "@/components/ui/button";
 
 type Product = {
   id: number;
@@ -62,19 +63,17 @@ export function FeaturedProducts() {
   return (
     <div className="mt-14 sm:mt-16">
       {/* Gradient banner header, cards overlap the band below it */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-surface via-primary/70 to-primary px-5 pb-28 pt-10 sm:px-9 sm:pb-32 sm:pt-12">
+      <div className="relative overflow-hidden rounded-3xl bg-primary px-5 pb-28 pt-10 sm:px-9 sm:pb-32 sm:pt-12">
         <div className="flex flex-wrap items-center justify-between gap-5">
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-primary-foreground/70">
               Curated performance &amp; diagnostic solutions
             </p>
-            <h3 className="mt-3 font-display text-3xl font-bold uppercase leading-none tracking-tight sm:text-5xl">
-              <span className="bg-gradient-to-r from-primary-foreground/60 to-primary-foreground bg-clip-text text-transparent">
-                Featured products in the store
-              </span>
+            <h3 className="mt-3 font-display text-2xl font-bold leading-tight text-primary-foreground sm:text-4xl">
+              Featured products in the store
             </h3>
             <span className="mt-4 block h-1 w-24 rounded-full bg-primary-foreground/40" aria-hidden="true" />
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-primary-foreground/80">
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-primary-foreground/85">
               Handpicked professional diagnostic tools &amp; engine solutions ready to dispatch.
             </p>
           </div>
@@ -82,10 +81,10 @@ export function FeaturedProducts() {
             href={SITE.storefront.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full bg-background px-6 py-3 text-sm font-bold text-foreground shadow-soft transition-all hover:gap-3"
+            className={buttonVariants({ variant: "light", size: "lg" })}
           >
             View All Products
-            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            <ArrowRight className="size-4" aria-hidden="true" />
           </a>
         </div>
       </div>
@@ -154,7 +153,7 @@ export function FeaturedProducts() {
                       </span>
                     ) : null}
                   </div>
-                  <span className="inline-flex shrink-0 items-center rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground transition-colors group-hover:bg-accent group-hover:text-ink">
+                  <span className={buttonVariants({ variant: "hero", size: "sm" })}>
                     View Details
                   </span>
                 </div>
