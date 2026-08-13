@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { SERVICES } from "@/lib/services";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS, SITE } from "@/lib/site";
 import logo from "@/assets/autodome-logo.png";
@@ -8,6 +10,7 @@ import { cn } from "@/lib/utils";
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -33,7 +36,7 @@ export function SiteHeader() {
       )}
     >
       <div className="section-shell flex h-20 items-center justify-between gap-4 sm:h-24 sm:gap-6">
-        <a href="#top" className="group flex min-w-0 items-center gap-3" aria-label="AutoDome home">
+        <a href="/#top" className="group flex min-w-0 items-center gap-3" aria-label="AutoDome home">
           <span className="grid shrink-0 place-items-center rounded-2xl bg-foreground px-3 py-2 shadow-soft">
             <img
               src={logo}
@@ -66,20 +69,46 @@ export function SiteHeader() {
 
 
         <nav className="hidden items-center gap-5 lg:flex xl:gap-8" aria-label="Primary">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "relative whitespace-nowrap text-sm font-semibold transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full",
-                scrolled
-                  ? "text-muted-foreground hover:text-primary"
-                  : "text-primary-foreground/85 hover:text-primary-foreground",
-              )}
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const linkClass = cn(
+              "relative whitespace-nowrap text-sm font-semibold transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full",
+              scrolled
+                ? "text-muted-foreground hover:text-primary"
+                : "text-primary-foreground/85 hover:text-primary-foreground",
+            );
+
+            if ("hasServicesMenu" in link && link.hasServicesMenu) {
+              return (
+                <div key={link.href} className="group relative">
+                  <a href={link.href} className={cn(linkClass, "inline-flex items-center gap-1")}>
+                    {link.label}
+                    <ChevronDown className="size-3.5" aria-hidden="true" />
+                  </a>
+                  <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                    <ul className="overflow-hidden rounded-2xl border border-border bg-card p-2 shadow-lifted">
+                      {SERVICES.map((service) => (
+                        <li key={service.slug}>
+                          <Link
+                            to="/services/$slug"
+                            params={{ slug: service.slug }}
+                            className="block rounded-xl px-4 py-2.5 text-sm font-semibold text-muted-foreground transition-colors hover:bg-surface hover:text-primary"
+                          >
+                            {service.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <a key={link.href} href={link.href} className={linkClass}>
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -96,7 +125,7 @@ export function SiteHeader() {
             {SITE.phones[0]}
           </a>
           <Button asChild variant="hero" className="whitespace-nowrap">
-            <a href="#contact">Request Consultation</a>
+            <a href="/#contact">Request Consultation</a>
           </Button>
         </div>
 
@@ -168,21 +197,54 @@ export function SiteHeader() {
           </div>
 
           <nav className="mt-10 flex flex-col gap-1" aria-label="Mobile">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="border-b border-border/70 py-4 font-display text-xl font-semibold text-foreground transition-colors hover:text-primary"
-              >
-                {link.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) =>
+              "hasServicesMenu" in link && link.hasServicesMenu ? (
+                <div key={link.href} className="border-b border-border/70">
+                  <button
+                    type="button"
+                    onClick={() => setServicesOpen((v) => !v)}
+                    aria-expanded={servicesOpen}
+                    className="flex w-full items-center justify-between py-4 font-display text-xl font-semibold text-foreground transition-colors hover:text-primary"
+                  >
+                    {link.label}
+                    <ChevronDown
+                      className={cn("size-5 transition-transform", servicesOpen && "rotate-180")}
+                      aria-hidden="true"
+                    />
+                  </button>
+                  {servicesOpen && (
+                    <ul className="pb-4">
+                      {SERVICES.map((service) => (
+                        <li key={service.slug}>
+                          <Link
+                            to="/services/$slug"
+                            params={{ slug: service.slug }}
+                            onClick={() => setOpen(false)}
+                            className="block py-2.5 text-sm font-semibold text-muted-foreground transition-colors hover:text-primary"
+                          >
+                            {service.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="border-b border-border/70 py-4 font-display text-xl font-semibold text-foreground transition-colors hover:text-primary"
+                >
+                  {link.label}
+                </a>
+              ),
+            )}
           </nav>
 
           <div className="mt-auto space-y-3 pt-10">
             <Button asChild variant="hero" size="lg" className="w-full">
-              <a href="#contact" onClick={() => setOpen(false)}>
+              <a href="/#contact" onClick={() => setOpen(false)}>
                 Request Consultation
               </a>
             </Button>
