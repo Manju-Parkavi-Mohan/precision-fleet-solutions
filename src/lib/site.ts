@@ -18,10 +18,14 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#solutions" },
-  { label: "Industries", href: "#industries" },
-  { label: "Training", href: "#training" },
-  { label: "Online Store", href: "#store" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/#solutions", hasServicesMenu: true },
+  { label: "Industries", href: "/#industries" },
+  { label: "Training", href: "/#training" },
+  { label: "Online Store", href: "/#store" },
+  { label: "Contact", href: "/#contact" },
 ] as const;
+
+export const REVIEWS_URL =
+  "https://www.google.com/maps/place/AutoDome+%7C+Truck+Diagnostic+Centre/@25.3023253,55.6268803,17z/data=!4m8!3m7!1s0x3ef5f3a453b79363:0xcbef8cf83bbe4f94!8m2!3d25.3421411!4d55.6481055!9m1!1b1!16s%2Fg%2F11vt6z1nmb?hl=en&entry=ttu";
+
